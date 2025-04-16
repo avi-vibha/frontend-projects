@@ -1,8 +1,7 @@
-import Message from './Message'; // . means current folder
+import ListGroup from './components/ListGroup'; 
 
 function App () {
-  return <div><Message /></div> //Adding our Message component 
-                               //Always close the react component
+  return <div><ListGroup/></div>                        
 }
 
-export default App; // Exporting so that it can be used somewhere else 
+export default App;  
