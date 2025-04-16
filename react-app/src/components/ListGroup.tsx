@@ -5,11 +5,12 @@ function ListGroup() {
   items = [];
 
   // rendering conditionally inside our jsx expression
-  // adding a ternery operator
+  // storing the logic in a separte variable or constant, to prevent polluting our jsx
+  const message = items.length === 0 ? <p>No item found</p> : null; // adding a ternery operator
   return (
     <>
       <h1>List</h1>
-      {items.length === 0 ? <p>No item found</p> : null}
+      {message}
       <ul className="list-group">
         {items.map((item) => (
           <li className="list-group-item" key={item}>
