@@ -2,7 +2,7 @@ import { Fragment } from "react";
 
 function ListGroup() {
   let items = ["New York", "San Francisco", "Tokyo", "London", "Paris"];
-  items = [];
+  //items = [];
 
   // rendering conditionally inside our jsx expression
   // storing the logic in a separte variable or constant, to prevent polluting our jsx
@@ -20,8 +20,13 @@ function ListGroup() {
       {/*replacing the terneary operator with logical and, and value that will be returned if the condition is true*/}
       {items.length === 0 && <p>No item found</p>}
       <ul className="list-group">
+        {/*In react each element has a property called on click */}
         {items.map((item) => (
-          <li className="list-group-item" key={item}>
+          <li
+            className="list-group-item"
+            key={item}
+            onClick={() => console.log("Clicked")}
+          >
             {item}
           </li>
         ))}
