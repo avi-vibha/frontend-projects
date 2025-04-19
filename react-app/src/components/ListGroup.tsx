@@ -9,14 +9,16 @@ function ListGroup() {
 
   // moving the logic inside a function
   // benefit of using a function is that we can pass parameters
-  const getMessage = () => {
+  /*const getMessage = () => {
     return items.length === 0 ? <p>No item found</p> : null; // adding a ternery operator
-  };
+  };*/
 
   return (
     <>
       <h1>List</h1>
-      {getMessage()}
+      {/*items.length === 0 ? <p>No item found</p> : null*/}
+      {/*replacing the terneary operator with logical and, and value that will be returned if the condition is true*/}
+      {items.length === 0 && <p>No item found</p>}
       <ul className="list-group">
         {items.map((item) => (
           <li className="list-group-item" key={item}>
