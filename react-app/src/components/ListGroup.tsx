@@ -1,4 +1,4 @@
-import { Fragment } from "react";
+import { MouseEvent } from "react";
 
 function ListGroup() {
   let items = ["New York", "San Francisco", "Tokyo", "London", "Paris"];
@@ -13,6 +13,9 @@ function ListGroup() {
     return items.length === 0 ? <p>No item found</p> : null; // adding a ternery operator
   };*/
 
+  //Event handler
+  const handleClick = (event: MouseEvent) => console.log(event); //This is called type annotation in ts
+
   return (
     <>
       <h1>List</h1>
@@ -25,7 +28,8 @@ function ListGroup() {
           <li
             className="list-group-item"
             key={item}
-            onClick={() => console.log(item, index)}
+            // The arrow function can optionally have a parameter that represents the browser event
+            onClick={handleClick} // Calling the function will be done at runtime
           >
             {item}
           </li>
