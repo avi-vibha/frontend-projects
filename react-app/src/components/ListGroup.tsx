@@ -1,8 +1,11 @@
-import { MouseEvent } from "react";
+import { MouseEvent, useState } from "react";
 
 function ListGroup() {
   let items = ["New York", "San Francisco", "Tokyo", "London", "Paris"];
   //items = [];
+
+  // check tutorial-points document
+  const [selectedIndex, setSelectedIndex] = useState(-1);
 
   // rendering conditionally inside our jsx expression
   // storing the logic in a separte variable or constant, to prevent polluting our jsx
@@ -14,7 +17,7 @@ function ListGroup() {
   };*/
 
   //Event handler
-  const handleClick = (event: MouseEvent) => console.log(event); //This is called type annotation in ts
+  //const handleClick = (event: MouseEvent) => console.log(event); //This is called type annotation in ts
 
   return (
     <>
@@ -26,10 +29,17 @@ function ListGroup() {
         {/*In react each element has a property called on click */}
         {items.map((item, index) => (
           <li
-            className="list-group-item"
+            className={
+              selectedIndex === index
+                ? "list-group-item active"
+                : "list-group-item"
+            } /* rendering/adding classes dynamically */
             key={item}
             // The arrow function can optionally have a parameter that represents the browser event
-            onClick={handleClick} // Calling the function will be done at runtime
+            //onClick={handleClick} // Calling the function will be done at runtime
+            onClick={() => {
+              setSelectedIndex(index);
+            }} // Updating the selectedIndex on click
           >
             {item}
           </li>
