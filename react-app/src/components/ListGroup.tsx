@@ -1,7 +1,12 @@
 import { MouseEvent, useState } from "react";
 
-function ListGroup() {
-  let items = ["New York", "San Francisco", "Tokyo", "London", "Paris"];
+interface Props {
+  items: string[];
+  heading: string;
+}
+
+function ListGroup({ items, heading }: Props) {
+  //let items = ["New York", "San Francisco", "Tokyo", "London", "Paris"]; // moving this to App.tsx
   //items = [];
 
   // check tutorial-points document
@@ -21,7 +26,7 @@ function ListGroup() {
 
   return (
     <>
-      <h1>List</h1>
+      <h1>{heading}</h1>
       {/*items.length === 0 ? <p>No item found</p> : null*/}
       {/*replacing the terneary operator with logical and, and value that will be returned if the condition is true*/}
       {items.length === 0 && <p>No item found</p>}
