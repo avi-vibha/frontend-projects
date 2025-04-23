@@ -3,9 +3,10 @@ import { MouseEvent, useState } from "react";
 interface Props {
   items: string[];
   heading: string;
+  onSelectItem: (item: string) => void;
 }
 
-function ListGroup({ items, heading }: Props) {
+function ListGroup({ items, heading, onSelectItem }: Props) {
   //let items = ["New York", "San Francisco", "Tokyo", "London", "Paris"]; // moving this to App.tsx
   //items = [];
 
@@ -44,6 +45,7 @@ function ListGroup({ items, heading }: Props) {
             //onClick={handleClick} // Calling the function will be done at runtime
             onClick={() => {
               setSelectedIndex(index);
+              onSelectItem(item);
             }} // Updating the selectedIndex on click
           >
             {item}
